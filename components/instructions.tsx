@@ -1,0 +1,51 @@
+import React from "react";
+import styles from "../styles/instructions.module.scss";
+import Button from "./button";
+import Score from "./score";
+
+interface Props {
+  highscore: number;
+  start: () => void;
+}
+
+export default function Instructions(props: Props) {
+  const { highscore, start } = props;
+
+  return (
+    <div className={styles.instructions}>
+      <div className={styles.wrapper}>
+        <h2>Coloque os cartões dos filmes na linha do tempo na ordem correta.</h2>
+        {highscore !== 0 && (
+          <div className={styles.highscoreWrapper}>
+            <Score score={highscore} title="Melhor pontuação" />
+          </div>
+        )}
+        <Button onClick={start} text="Jogar" />
+        <div className={styles.about}>
+          <div>
+            All data sourced from{" "}
+            <a
+              href="https://www.themoviedb.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              themoviedb.org
+            </a>
+            .
+          </div>
+          <div>
+            Have feedback? Please report it on{" "}
+            <a
+              href="https://github.com/lbernardo/wikitrivia-br/issues/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+            .
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
