@@ -32,3 +32,6 @@ Then run said build with:
 ```bash
 yarn start
 ```
+
+### Generate data
+ Use https://github.com/lbernardo/moviestrivia-generator
